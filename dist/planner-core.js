@@ -1,0 +1,13 @@
+(function(root,factory){const model=factory();if(typeof module==='object'&&module.exports)module.exports=model;else root.PlannerModel=model})(typeof window==='object'?window:globalThis,function(){
+ 'use strict';
+ const statuses={todo:'시작 전',doing:'진행 중',done:'완료',skipped:'하지 않음'};
+ function validDate(s){if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return false;const d=new Date(s+'T12:00:00');return !isNaN(d)&&format(d)===s}
+ function format(d){return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')}
+ function clean(raw){const s=raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{};return {...s,items:s.items&&typeof s.items==='object'&&!Array.isArray(s.items)?s.items:{},custom:Array.isArray(s.custom)?s.custom.filter(t=>t&&typeof t.id==='string'&&typeof t.title==='string'):[],weddingDate:validDate(s.weddingDate)?s.weddingDate:'',focusStageId:typeof s.focusStageId==='string'?s.focusStageId:'start'}}
+ function suggested(date,stage){if(!validDate(date)||!stage)return '';const d=new Date(date+'T12:00:00'),day=d.getDate();d.setDate(1);d.setMonth(d.getMonth()+(stage.months||0));const last=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();d.setDate(Math.min(day,last));d.setDate(d.getDate()+(stage.days||0));return format(d)}
+ function tasks(data,state,surveyDone=false){return [...data.items,...state.custom].map(t=>{const edit=state.items[t.id]||{},stage=data.stages.find(s=>s.id===(edit.stage||t.stage))||data.stages[0];return {...t,...edit,stage:stage.id,status:statuses[edit.status]?edit.status:(surveyDone&&t.id==='venue_criteria'?'done':'todo'),due:validDate(edit.due)?edit.due:suggested(state.weddingDate,stage),explicitDue:validDate(edit.due),note:typeof edit.note==='string'?edit.note:'',owner:edit.owner||'함께',timing:stage.timing}}).sort((a,b)=>data.stages.findIndex(s=>s.id===a.stage)-data.stages.findIndex(s=>s.id===b.stage))}
+ function stats(list){const count=s=>list.filter(t=>t.status===s).length;return {total:list.length,done:count('done'),doing:count('doing'),todo:count('todo'),skipped:count('skipped'),active:list.length-count('skipped'),percent:Math.round(count('done')/Math.max(1,list.length-count('skipped'))*100)}}
+ function filter(list,f){return list.filter(t=>(!f.stage||f.stage==='all'||t.stage===f.stage)&&(!f.category||f.category==='all'||t.category===f.category)&&(!f.status||f.status==='all'||(f.status==='open'?['todo','doing'].includes(t.status):t.status===f.status)))}
+ function upcoming(list){return list.filter(t=>['todo','doing'].includes(t.status)).sort((a,b)=>(a.due||'9999').localeCompare(b.due||'9999'))}
+ return {statuses,validDate,format,clean,suggested,tasks,stats,filter,upcoming};
+});

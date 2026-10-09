@@ -1,0 +1,103 @@
+/* Shared section hierarchy: neutral controls, white content, deeper summaries. */
+:root{--surface-page:#f5f5f5;--surface-content:#fff;--surface-controls:#eaeaea;--surface-summary:#e2e2e2;--surface-line:#d0d0d0;--surface-radius:6px;--paper:var(--surface-page)}
+.site-sheet{background:var(--surface-page)}
+.site-header{background:#fafafa;border-bottom:1px solid #e0e0e0}
+footer{border-top:1px solid var(--surface-line);background:#ededed;margin-top:30px}
+.journal-tabs{background:#ebebeb;border:1px solid #dedede;border-radius:var(--surface-radius);padding:5px;gap:5px;margin-bottom:32px}
+.journal-tabs a{padding:12px 17px;margin:0;border-bottom:2px solid transparent;border-radius:3px;min-height:46px}
+.journal-tabs a[aria-current]{background:#fff;border-bottom-color:#333;box-shadow:0 1px 3px #00000008}
+.journal-tabs a:hover{background:#f8f8f8}
+.ui-filter-panel{padding:24px;background:var(--surface-controls);border:1px solid var(--surface-line);border-radius:var(--surface-radius);margin-bottom:30px;position:relative}
+.ui-panel-title{font-size:14px;font-weight:600;letter-spacing:0;color:#444;margin:0 0 16px;line-height:1.6}
+.ui-filter-panel .j-search{max-width:none;margin:0 0 18px}
+.ui-filter-panel .j-toolbar{margin:0;gap:16px}
+.ui-filter-panel .j-applied{padding-top:16px;border-top:1px solid #ccc;margin:18px 0 0}
+.ui-filter-panel .hall-search{margin:0 0 16px}
+.ui-filter-panel .hall-filter-controls{margin-bottom:0}
+.ui-filter-panel .j-hall-actions{border-top:1px solid #cecece;margin:20px 0 0;padding-top:18px}
+.ui-filter-panel .outline-button,.ui-filter-panel .hall-filter-trigger{background:#fff;border-color:#bcbcbc}
+.ui-filter-panel .hall-filter-trigger.is-selected{background:#d9d9d9;border-color:#606060}
+.ui-filter-panel .j-hall-actions button[aria-pressed=true]{background:#d7d7d7;border-color:#555}
+.ui-filter-panel .j-segment{background:#dedede;border-color:#c2c2c2}
+.ui-filter-panel .hall-filter-popover{background:#fff}
+.j-result-tabs{margin:0 0 24px;padding:0 4px;border-color:#bbb}
+.j-card,.hall-card{background:var(--surface-content);border-color:var(--surface-line);box-shadow:0 2px 5px #00000003}
+.j-card-copy,.hall-card-content{background:#fff}
+.j-card .j-facts{background:#f4f4f4;margin:18px -10px 0;padding:10px 12px;border:0;border-radius:3px}
+.j-card .j-item-check{background:#f1f1f1;padding:14px 12px;margin:18px -10px -5px;border:0;border-radius:3px}
+.j-grid,.hall-grid{row-gap:28px}
+.j-notice,.j-tip,.j-region-shortcuts{background:var(--surface-controls);border:1px solid var(--surface-line);border-radius:var(--surface-radius);padding:24px}
+.j-empty,.empty-state{background:#fff;border:1px dashed #c4c4c4;border-radius:var(--surface-radius)}
+.j-map-list{background:#fff}.j-map-list button:nth-child(even){background:#f3f3f3}
+.j-check-progress{background:var(--surface-summary);border-color:#c8c8c8;border-radius:var(--surface-radius)}
+#app:is([data-page=essentials],[data-page=snap]) #journal-workspace>.j-toolbar{padding:20px 24px;background:var(--surface-controls);border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.j-checklist{border:1px solid var(--surface-line);border-bottom:0;background:#fff;border-radius:var(--surface-radius);overflow:hidden}
+.j-check-row{padding:22px}.j-check-row:nth-child(even){background:#f2f2f2}
+.j-theme-grid button,.j-export-options button{background:#fff;border-color:var(--surface-line)}
+.j-theme-grid button[aria-pressed=true],.j-export-options button[aria-pressed=true]{background:var(--surface-summary);border-color:#666;box-shadow:inset 0 0 0 1px #666}
+.j-export-intro{background:var(--surface-controls);padding:28px;border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.j-export-table{background:#fff;border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.j-export-table th{background:#e3e3e3}.j-export-table tbody tr:nth-child(even){background:#f5f5f5}
+.j-save-tabs{background:var(--surface-controls);padding:14px;border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.j-save-tabs button{background:#fff;border-color:#c7c7c7}.j-save-tabs button[aria-pressed=true]{background:#333;border-color:#333}
+.j-guide section{padding:28px;background:#fff;border:1px solid var(--surface-line);border-radius:var(--surface-radius);margin-bottom:24px}
+.j-guide section:nth-child(even){background:var(--surface-controls)}
+/* Overview and budget retain the album layout, with distinct chapter surfaces. */
+.journal-section{padding:30px;border:1px solid var(--surface-line);border-radius:var(--surface-radius);margin:28px 0;background:#fff}
+.journal-section.progress-section{background:var(--surface-controls)}
+.journal-section .metrics{margin:0;gap:12px;border:0}
+.journal-section .metric{background:#fff;border:1px solid #d5d5d5;border-radius:4px;padding:20px}
+.journal-section .metric:hover{background:#fafafa;border-color:#aaa}
+.journal-section .two-column>section+section{background:#ededed;padding:24px;border-radius:4px}
+.j-home-links a{background:#fff}.j-home-links a:hover{background:#e7e7e7}
+.budget-overview{background:var(--surface-summary);border:1px solid #c9c9c9;border-radius:var(--surface-radius);padding:24px;margin-bottom:28px}
+#app[data-page=budget] .wide-panel{background:#fff;padding:28px;border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.budget-table th{background:#ededed}.budget-table tbody th{background:transparent}
+.budget-table tbody tr:nth-child(even){background:#f5f5f5}.budget-table tfoot{background:#e5e5e5}
+.hall-entry,.saved-hall-link{background:var(--surface-controls);padding:26px;border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.curation-card{background:#fff;border:1px solid var(--surface-line);border-radius:var(--surface-radius);padding:22px}
+/* Planning: summary, controls and actionable records each have a clear surface. */
+.p-summary{background:#ebebeb;border-color:var(--surface-line)}
+.p-summary .p-progress{background:#dedede}.p-summary .p-summary-note{background:#eee}
+.p-filters{background:var(--surface-controls);padding:22px 24px;border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.p-timeline{background:#e8e8e8;padding:12px;border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.p-timeline button:hover{background:#f7f7f7}.p-timeline button[aria-pressed=true]{background:#333;color:#fff}
+.p-stage-heading{padding:22px 24px;background:var(--surface-controls);border:1px solid var(--surface-line);border-radius:var(--surface-radius);margin-bottom:18px}
+.p-stage-links{border-top:0;padding-top:0;margin-bottom:16px}
+.p-task{background:#fff;border-color:var(--surface-line)}
+.p-task.is-done{background:#e9e9e9}.p-task.is-skipped{background:#f0f0f0}
+.p-task-group>h3{background:#dedede;border-color:#c8c8c8;padding:16px 20px;border-radius:var(--surface-radius) var(--surface-radius) 0 0}
+.p-task-group{margin-bottom:32px}.p-task-group .p-task:last-child{border-radius:0 0 var(--surface-radius) var(--surface-radius)}
+.p-task-note{background:#ededed;border-left-color:#aaa}
+.p-status,.p-date>span{font-size:14px}.p-task-bottom{font-size:14px}
+/* Survey questions and reports use the same section hierarchy. */
+.survey-progress{padding:18px 22px;background:var(--surface-controls);border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.survey-question-card{background:#fff}.survey-question-card>header{background:#e8e8e8;border-radius:5px 5px 0 0}
+.survey-question-body{background:#fff}.survey-question-footer{background:#ededed}
+.survey-rail{padding:20px;background:#eaeaea;border:1px solid var(--surface-line);border-radius:var(--surface-radius)}
+.survey-rail li.current button{background:#d8d8d8}.survey-rail .section-eyebrow{font-size:12px}
+.survey-report-intro{background:var(--surface-summary);border:1px solid var(--surface-line);border-radius:var(--surface-radius);padding:28px;margin-bottom:28px}
+.survey-report-section{background:#fff;border:1px solid var(--surface-line);border-radius:var(--surface-radius);padding:28px;margin-bottom:24px}
+.survey-report-section:nth-child(even){background:#ededed}.survey-tool-grid article{background:#fff}
+.survey-section-title{padding-bottom:18px;border-bottom:1px solid #ccc}
+.hall-detail-section,.j-source{background:#ededed;border:1px solid #d4d4d4;border-radius:4px;padding:20px;margin-top:22px}
+.hall-detail-section:nth-of-type(even){background:#fff}
+@media(max-width:760px){
+ .journal-tabs{gap:4px;padding:4px}.journal-tabs a{padding:10px 13px;min-height:46px}
+ .ui-filter-panel{padding:18px;margin-bottom:24px}.ui-filter-panel .j-search{margin-bottom:16px}.ui-panel-title{margin-bottom:12px}
+ .ui-filter-panel .j-toolbar{gap:14px}.ui-filter-panel .j-hall-actions{gap:8px}
+ .ui-filter-panel .hall-filter-triggers{flex-wrap:wrap}.ui-filter-panel .hall-filter-trigger{flex:1 1 90px}
+ .ui-filter-panel .j-search input{font-size:16px}.ui-filter-panel .j-controls{gap:8px}
+ .journal-section{padding:22px;margin:24px 0;gap:24px}.journal-section .metrics{gap:10px}
+ .journal-section .metric{padding:18px}.journal-section .metric:after{right:7px}
+ .journal-section .two-column>section+section{padding:18px}
+ .budget-overview{padding:18px}.budget-summary:first-child{padding-left:0}
+ #app[data-page=budget] .wide-panel{padding:20px}
+ .p-filters{padding:18px;gap:14px}.p-stage-heading{padding:20px}.p-summary>div+div{border-color:#ccc}
+ .j-export-intro,.j-guide section,.j-region-shortcuts,.hall-entry,.saved-hall-link{padding:20px}
+ .curation-card{padding:18px}.j-check-row{padding:20px}
+ .survey-report-intro,.survey-report-section{padding:22px 18px}.survey-rail{padding:16px}
+ #app:is([data-page=essentials],[data-page=snap]) #journal-workspace>.j-toolbar{padding:18px}
+}
+@media(max-width:700px){.p-timeline{padding:10px;gap:8px}.p-timeline button{background:#fff}.p-summary .p-summary-note{border-top:1px solid #ccc}}
+@media(max-width:480px){.journal-section{padding:18px}.ui-filter-panel{padding:16px}.ui-filter-panel .j-controls button{font-size:14px}.j-export-intro{align-items:flex-start}.survey-progress{padding:14px;gap:12px}.j-save-tabs{padding:10px}}
